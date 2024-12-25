@@ -1,0 +1,15 @@
+# Variables
+README=README.md
+SCRIPT=guessinggame.sh
+
+# Cible par défaut pour générer le README
+all: $(README)
+
+$(README): $(SCRIPT)
+	echo "# Projet Guessing Game" > $(README)
+	echo "Date et heure d'exécution : $$(date)" >> $(README)
+	echo "Nombre de lignes dans $(SCRIPT) : $$(wc -l < $(SCRIPT))" >> $(README)
+
+# Nettoyage des fichiers générés
+clean:
+	rm -f $(README)
